@@ -1,0 +1,38 @@
+﻿
+<h2>Adicionar Produto</h2>
+
+<form method="post">
+    <div class="form">
+
+        <input type="hidden" name="id" value="@Model.Id" />
+
+        <ul style="list-style-type: none;">
+            <li>
+                <label for="cpf">CPF:</label><br />
+                <input type="text" value="@Model.Cpf" class="form-control" id="cpf" name="cpf" required autofocus />
+            </li>
+            <li>
+                <label for="nome">Nome Completo:</label><br />
+                <input type="text" value="@Model.Nome" class="form-control" id="nome" onkeypress="return ApenasLetras(event, this);" name="nome" required />
+            </li>
+            <li>
+                <label for="email">E-mail:</label><br />
+                <input type="text" value="@Model.Email" class="form-control" id="email" name="email" placeholder="seu_email@dominio.com" required />
+            </li>
+            <li>
+                <label for="telefone">Telefone:</label><br />
+                <input type="tel" value="@Model.Telefone" class="form-control" id="telefone" name="telefone" placeholder="(__) _____-____" max-length="11" required />
+            </li>
+            <li>
+                <label for="cep">CEP:</label><br />
+                <input type="text" value="@Model.Cep" class="form-control" id="cep" name="cep" max-length="8" required />
+            </li>
+        </ul>
+
+        <input type="submit" class="btn btn-primary" id="salvar" value="SALVAR">
+        <a href="~/Pessoa">Cancelar</a>
+    </div>
+</form>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/Pessoa")

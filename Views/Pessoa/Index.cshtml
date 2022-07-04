@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Listagem de Pessoa Física";
+}
+
+<div>
+    <h2>Listagem de pessoas física</h2>
+
+    <a href="~/Pessoa/AddEdit" class="btn btn-primary">Cadastrar Pessoa</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var pessoa in Model)
+            {
+                <tr>
+                    <td>@pessoa.Id</td>
+                    <td>@pessoa.Nome</td>
+                    <td>@pessoa.Cpf</td>
+                    <td>@pessoa.Telefone</td>
+                    <td>
+                        <a class="btn btn-primary" href="~/Pessoa/AddEdit/@pessoa.Id">Editar</a>
+                        <button class="btn btn-danger" id="excluir" onclick="Excluir(@pessoa.Id,'@pessoa.Nome');">Excluir</button>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<script>
+    function Excluir(id, nome)
+    {
+        let confirmacao = confirm(`Deseja excluir '${nome}' da listagem de pessoas físicas?`)
+        if (confirmacao) {
+            console.log(`${nome}, Id = ${id} sendo excluído(a)...`)
+            ConfirmExclude(id)
+        }z
+    }
+
+    function ConfirmExclude(id)
+    {
+
+    }
+    
+</script>
+
+
+<!--
+    
+<form action="" onsubmit="">
+    <div class="form">
+
+        <input type="hidden" name="id" value="" />
+
+<input type="hidden" name="id" value="" />
+
+<ul style="list-style-type: none;">
+    <li>
+        <label for="cpf">CPF:</label><br />
+        <input type="text" class="form-control" id="cpf" name="cpf" max-length="11" required autofocus />
+    </li>
+    <li>
+        <label for="nome">Nome Completo:</label><br />
+        <input type="text" class="form-control" id="nome" onkeypress="return ApenasLetras(event, this);" name="nome" required />
+    </li>
+    <li>
+        <label for="email">E-mail:</label><br />
+        <input type="text" class="form-control" id="email" name="email" placeholder="seu_email@dominio.com" required />
+    </li>
+    <li>
+        <label for="telefone">Telefone:</label><br />
+        <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(__) _____-____" max-length="11" required />
+    </li>
+    <li>
+        <label for="cep">CEP:</label><br />
+        <input type="text" class="form-control" id="cep" name="cep" max-length="8" required />
+    </li>
+</ul>
+
+<input type="submit" class="btn btn-primary" id="salvar" value="SALVAR">
+    </div>
+</form>
+
+-->
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/Pessoa")
+
